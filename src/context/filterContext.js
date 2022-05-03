@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react';
+import { useLocalStorage } from '../hooks/useLocalStorage';
 
 const filterContext = createContext();
 
@@ -12,7 +13,9 @@ export const FilterNameProvider = ({ children }) => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [valueName, setValueName] = useState('reactjs');
-  const [more, setMore] = useState(true);
+
+  //UseLocalStorage
+  const [post, setPost] = useLocalStorage('POST_FAVORITES', []);
 
   const apiFetch = async (name) => {
     try {
@@ -45,7 +48,6 @@ export const FilterNameProvider = ({ children }) => {
     setData([...data, ...moreHits]);
 
     setPage(page + 1);
-    // setMore(false);
   };
 
   useEffect(() => {
@@ -60,8 +62,9 @@ export const FilterNameProvider = ({ children }) => {
         valueName,
         setValueName,
         data,
-        more,
         fetchMoreData,
+        post,
+        setPost,
       }}
     >
       {children}

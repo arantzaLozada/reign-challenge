@@ -7,7 +7,7 @@ import { Selector } from '../components/Selector/Selector';
 import { useFilterName } from '../context/filterContext';
 
 export function HomePage() {
-  const { data, more, fetchMoreData } = useFilterName();
+  const { data, fetchMoreData } = useFilterName();
 
   return (
     <>
@@ -19,7 +19,7 @@ export function HomePage() {
         <InfiniteScroll
           dataLength={data.length}
           next={fetchMoreData}
-          hasMore={more}
+          hasMore={true}
           loader={<Loader />}
           style={{ overflow: 'hidden' }}
         >
