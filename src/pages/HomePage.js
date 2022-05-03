@@ -1,6 +1,7 @@
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { HitsItem } from '../components/HitsItem/HitsItem';
 import { HistLits } from '../components/HitsLits';
+import { Loader } from '../components/Loader/Loader';
 import { Navbar } from '../components/Navbar/Navbar';
 import { Selector } from '../components/Selector/Selector';
 import { useFilterName } from '../context/filterContext';
@@ -19,7 +20,8 @@ export function HomePage() {
           dataLength={data.length}
           next={fetchMoreData}
           hasMore={more}
-          loader={<h4>Loading...</h4>}
+          loader={<Loader />}
+          style={{ overflow: 'hidden' }}
         >
           <HistLits>
             {data.map((attributes) => (

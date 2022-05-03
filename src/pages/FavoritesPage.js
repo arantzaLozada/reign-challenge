@@ -4,6 +4,7 @@ export function FavoritesPage() {
   return (
     <>
       <Navbar />
+      <div>test</div>
     </>
   );
 }

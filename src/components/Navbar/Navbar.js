@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import './navbar.css';
 
@@ -8,14 +8,20 @@ export function Navbar() {
       <nav className="container navbar">
         <ul className="navbar-ul">
           <li className="navbar-li">
-            <Link style={{ color: '#606060' }} to="/">
+            <NavLink
+              className={({ isActive }) => (isActive ? 'link-active' : 'link')}
+              to="/"
+            >
               All
-            </Link>
+            </NavLink>
           </li>
           <li className="navbar-li">
-            <Link style={{ color: '#606060' }} to="/favorites">
+            <NavLink
+              className={({ isActive }) => (isActive ? 'link-active' : 'link')}
+              to="/favorites"
+            >
               My faves
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </nav>
