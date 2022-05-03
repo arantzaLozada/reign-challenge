@@ -37,6 +37,7 @@ export const FilterNameProvider = ({ children }) => {
       value={{
         valueName,
         setValueName,
+        data,
       }}
     >
       {children}

@@ -1,0 +1,19 @@
+.navbar {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-ul {
+  display: flex;
+}
+
+.navbar-li {
+  width: 150px;
+  height: 31px;
+  padding: 5px 40px;
+  border: solid 1px #d6d6d6;
+  border-radius: 2px;
+  text-align: center;
+  font-weight: 500;
+}

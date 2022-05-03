@@ -1,0 +1,12 @@
+.selector-container {
+  margin-top: 50px;
+}
+
+.select-css {
+  padding: 5px 80px 5px 0px;
+  border-radius: 4px;
+  border: solid 2px #2e2e2e;
+  color: #343434;
+  font-weight: 500;
+  text-align: left;
+}

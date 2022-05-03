@@ -1,18 +1,23 @@
-import { useFilterName } from '../context/filterContext';
+import { useFilterName } from '../../context/filterContext';
+import angularIcon from '../../assets/angular-icon.png';
+import './selector.css';
 
 export function Selector() {
   const { valueName, setValueName } = useFilterName();
 
   const handleChange = (e) => {
     setValueName(e.target.value);
-    // await apiFetch(`${e.target.value}`, page);
     console.log(e.target.value);
   };
 
   return (
     <>
-      <div>
-        <select value={valueName} onChange={handleChange}>
+      <div className="selector-container">
+        <select
+          className="select-css"
+          value={valueName}
+          onChange={handleChange}
+        >
           <option value="reactjs">React</option>
           <option value="angular">Angular</option>
           <option value="vuejs">Vue</option>
