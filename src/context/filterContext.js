@@ -54,8 +54,6 @@ export const FilterNameProvider = ({ children }) => {
     apiFetch(valueName);
   }, [valueName]);
 
-  console.log('data', data);
-
   return (
     <filterContext.Provider
       value={{
