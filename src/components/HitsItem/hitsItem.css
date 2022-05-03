@@ -17,6 +17,7 @@
   flex-direction: column;
   justify-content: center;
   padding: 15px;
+  width: calc(500px - 68px);
 }
 
 .author {

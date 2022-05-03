@@ -1,5 +1,5 @@
 import { useFilterName } from '../../context/filterContext';
-import angularIcon from '../../assets/angular-icon.png';
+// import angularIcon from '../../assets/angular-icon.png';
 import './selector.css';
 
 export function Selector() {

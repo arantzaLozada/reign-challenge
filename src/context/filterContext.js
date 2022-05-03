@@ -10,13 +10,14 @@ export const useFilterName = () => {
 
 export const FilterNameProvider = ({ children }) => {
   const [data, setData] = useState([]);
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   const [valueName, setValueName] = useState('reactjs');
+  const [more, setMore] = useState(true);
 
-  const apiFetch = async (name, page) => {
+  const apiFetch = async (name) => {
     try {
       const response = await fetch(
-        `https://hn.algolia.com/api/v1/search_by_date?query=${name}&page=${page}`
+        `https://hn.algolia.com/api/v1/search_by_date?query=${name}&page=0`
       );
       const dataJSON = await response.json();
 
@@ -26,8 +27,29 @@ export const FilterNameProvider = ({ children }) => {
     }
   };
 
+  const apiMoreHits = async (name) => {
+    try {
+      const response = await fetch(
+        `https://hn.algolia.com/api/v1/search_by_date?query=${name}&page=${page}`
+      );
+      const dataJSON = await response.json();
+
+      return dataJSON.hits;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const fetchMoreData = async () => {
+    const moreHits = await apiMoreHits(valueName);
+    setData([...data, ...moreHits]);
+
+    setPage(page + 1);
+    // setMore(false);
+  };
+
   useEffect(() => {
-    apiFetch(valueName, page);
+    apiFetch(valueName);
   }, [valueName]);
 
   console.log('data', data);
@@ -38,6 +60,8 @@ export const FilterNameProvider = ({ children }) => {
         valueName,
         setValueName,
         data,
+        more,
+        fetchMoreData,
       }}
     >
       {children}
