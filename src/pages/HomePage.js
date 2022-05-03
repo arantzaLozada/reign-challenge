@@ -24,9 +24,9 @@ export function HomePage() {
           style={{ overflow: 'hidden' }}
         >
           <HistLits>
-            {data.map((attributes) => (
+            {data.map((attributes, index) => (
               <HitsItem
-                key={attributes.objectID}
+                key={index}
                 author={attributes.author}
                 created_at={attributes.created_at}
                 story_title={attributes.story_title}
